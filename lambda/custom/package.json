@@ -1,0 +1,30 @@
+{
+  "name": "angelfood",
+  "version": "1.0.0",
+  "description": "Returns BBC Scotland lunch menu when asked",
+  "main": "/lambda/custom/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruth-duda/angelfood.git"
+  },
+  "keywords": [
+    "pacific",
+    "bbc",
+    "lunch",
+    "angel",
+    "food",
+    "angelfood"
+  ],
+  "author": "Ruth Duda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruth-duda/angelfood/issues"
+  },
+  "homepage": "https://github.com/ruth-duda/angelfood#readme",
+  "dependencies": {
+    "jest": "^23.6.0"
+  }
+}
