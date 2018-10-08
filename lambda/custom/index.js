@@ -2,52 +2,56 @@
 /* eslint-disable  no-console */
 const fs = require('fs');
 const Alexa = require('ask-sdk-core');
-const traverse = require('traverse');
-//const pdfParse = require('pdf-parser');
-//after lunch we are going to use something else
 
-let menuDays = [
-  { day: "Sunday",    col: 0},
-  { day: "Monday",    col: 3},
-  { day: "Tuesday",   col: 12},
-  { day: "Wednesday", col: 21},
-  { day: "Thursday",  col: 31},
-  { day: "Friday",    col: 40}
-]
-
-let menuJson = JSON.parse(fs.readFileSync("../../data/pqMenu.json", "utf8"));
-//console.log(JSON.stringify(menuJson));
-
-function FindTodaysSoups(day) {
-  let dateObj = menuDays[day];
-  let options = [];
-
-  traverse(menuJson).reduce((acc, key) => {
-    if(key !== undefined){
-      if(key.hasOwnProperty('R') && Math.floor(key.x) === dateObj.col) {
-            options.push(decodeURI(key.R[0].T));
-          }
-      }
-  });
-
-  return `${options[1]}, ${options[2]}`;
+let menuJson = {
+  soups: [
+    {
+      name: "Moroccan Spiced Lentil Soup"
+    },
+    {
+      name: "Cream of Tomato Soup"
+    }
+  ],
+  mains: [
+    {
+      name: "Grilled Pork Steak",
+      description: "Served With an Orange and Fennel Salad "
+    },
+    {
+      name: "Cheese Stuffed Doritos Burger",
+      description: "Served With an Jalapeño Poppers or Fries"
+    },
+    {
+      name: "Texas BBQ Sweet Hot Chilli",
+      description: "A Smokey Spicy Sweet Hot Version of " +
+      "Chilli Con Carne Served With Corn and " +
+      "Garden Pea Rice"
+    },
+    {
+      name: "Italian Pesto Gnocchi ",
+      description: ""
+    }
+  ],
 }
 
-FindTodaysMeals(4);
+function FindTodaysSoups(day) {
+  let outputString = "";
 
-function FindTodaysMeals(day) {
-  let dateObj = menuDays[day];
-  let options = [];
-
-  traverse(menuJson).reduce((acc, key) => {
-    if(key !== undefined){
-      if(key.hasOwnProperty('R') && Math.floor(key.x) === dateObj.col) {
-            options.push(decodeURI(key.R[0].T));
-          }
-      }
+  menuJson.soups.forEach((soup) => {
+    outputString = outputString + soup.name + " ";
   });
 
-  return `${options[3]}, ${options[7]}, ${options[12]}${options[13]}, ${options[17]}${options[18]}`;
+  return outputString;
+}
+
+function FindTodaysMeals(day) {
+  let outputString = "";
+
+  menuJson.mains.forEach((main) => {
+    outputString = outputString + main.name + ", " + main.description + " ";
+  });
+
+  return outputString;
 }
 
 const LaunchRequestHandler = {

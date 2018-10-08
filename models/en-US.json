@@ -25,14 +25,39 @@
           ]
         },
         {
-          "name": "HelloWorldIntent",
+          "name": "MealsIntent",
           "slots": [
 
           ],
           "samples": [
-            "hello",
-            "say hello",
-            "say hello world"
+            "meals",
+            "mains",
+            "main meals",
+            "the meals",
+            "the mains",
+            "the main meals",
+            "meals please",
+            "mains please",
+            "main meals please",
+            "the meals please",
+            "the mains please",
+            "the main meals please"
+          ]
+        },
+        {
+          "name": "SoupIntent",
+          "slots": [
+
+          ],
+          "samples": [
+            "soup",
+            "soups",
+            "the soup",
+            "the soups",
+            "soup please",
+            "soups please",
+            "the soup please",
+            "the soups please"
           ]
         }
       ]

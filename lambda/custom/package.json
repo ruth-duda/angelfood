@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/ruth-duda/angelfood#readme",
   "dependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "virtual-alexa": "^0.6.6"
   }
 }
